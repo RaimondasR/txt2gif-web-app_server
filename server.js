@@ -34,14 +34,14 @@ server.use((req, res, next) => {
 
 server.use(express.json()); /// for getting data from req.body
 
-// mongoose
-//   .connect(`${process.env.MONGO_KEY}`)
-//   .then((res) => {
-//     console.log("connected to mongoDB");
-//   })
-//   .catch((e) => {
-//     console.log(e);
-//   });
+mongoose
+  .connect(`${process.env.MONGO_KEY}`)
+  .then((res) => {
+    console.log("connected to mongoDB");
+  })
+  .catch((e) => {
+    console.log(e);
+  });
 
 const router = require("./routes/main");
 server.use("/", router);
@@ -49,5 +49,5 @@ server.use("/", router);
 const http = require("http").createServer(server);
 
 http.listen(5000, () => {
-  console.log("listenning to port 5000...");
+  console.log("web app server listenning to port 5000...");
 });

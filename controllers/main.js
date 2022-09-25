@@ -1,6 +1,6 @@
 module.exports = {
   submitText: async (req, res) => {
-    const { text } = req.body;
+    const { submittedText } = req.body;  {/* old const { text } */}
 
     console.log(text);
     res.send({
