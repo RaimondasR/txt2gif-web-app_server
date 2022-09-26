@@ -1,17 +1,7 @@
 const express = require("express"); // express for routing
 const server = express(); // express server
 const mongoose = require("mongoose");
-const session = require("express-session");
 require("dotenv").config();
-
-server.use(
-  session({
-    secret: process.env.SESSION_KEY,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false },
-  })
-);
 
 server.use((req, res, next) => {
   // Website you wish to allow to connect
@@ -34,20 +24,11 @@ server.use((req, res, next) => {
 
 server.use(express.json()); /// for getting data from req.body
 
-mongoose
-  .connect(`${process.env.MONGO_KEY}`)
-  .then((res) => {
-    console.log("connected to mongoDB");
-  })
-  .catch((e) => {
-    console.log(e);
-  });
-
 const router = require("./routes/main");
 server.use("/", router);
 
 const http = require("http").createServer(server);
 
 http.listen(5000, () => {
-  console.log("web app server listenning to port 5000...");
+  console.log("Web app server listenning to port 5000...");
 });

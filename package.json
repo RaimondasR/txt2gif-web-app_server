@@ -2,7 +2,7 @@
   "name": "txt2gif-web-app_server",
   "version": "1.0.0",
   "description": "Text to GIF web app back-end code.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js"
@@ -18,11 +18,14 @@
   },
   "homepage": "https://github.com/RaimondasR/txt2gif-web-app_server#readme",
   "dependencies": {
+    "@ibm-watson/natural-language-understanding-nodejs": "^0.4.0",
     "body-parser": "^1.20.0",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "express-session": "^1.17.3",
+    "ibm-watson": "^7.1.1",
     "mongoose": "^6.6.1",
+    "node-fetch": "^2.6.7",
     "routes": "^2.1.0"
   },
   "devDependencies": {
